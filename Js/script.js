@@ -1,0 +1,29 @@
+// TODO : M+,M-AND MC
+let string = "";
+let buttons = document.querySelectorAll('.buttton');
+Array.from(buttons).forEach((button) => {
+    button.addEventListener('click', (e) => {
+        if (e.target.innerHTML == '=') {
+            string = eval(string);
+            document.querySelector('input').value = string;
+        }
+        else if (e.target.innerHTML == 'AC') {
+            string = "";
+            document.querySelector('input').value = string;
+        }
+        else if (e.target.innerHTML == '^') {
+            // let a = Number1;
+            // let b = Number2;
+            // string = eval(a ^ b) == string * string;
+            string =string * string;
+
+            // string = eval(e.target.innerHTML == string * string);
+            document.querySelector('input').value = string;
+        }
+        else {
+            console.log(e.target)
+            string = string + e.target.innerHTML;
+            document.querySelector('input').value = string;
+        }
+    })
+})
